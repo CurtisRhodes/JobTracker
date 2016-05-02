@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Bid";
+}
+
+@section scripts {
+    <script src="~/Scripts/Scope.js"></script>
+    <script src="~/Scripts/JobCostsVM.js"></script>
+    <script src="~/Scripts/jquery/jquery-print.js"></script>
+    <script>
+        if ('@ViewBag.ProjectId' != 0) {
+            jobCostViewModel.ProjectId('@ViewBag.ProjectId')
+            ko.applyBindings(jobCostViewModel, document.getElementById("divJobCostPopup"));
+            getJobDescription('@ViewBag.ProjectId')
+        }
+    </script>
+}
+
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">JOB SCOPE WORKSHEET</div>
+    @Html.Partial("_JobHeader")
+    <div id="divJobCostItems" class="divDetailItems"></div>
+    <div class="flatButton" style="display:inline-block" id="lkScopeItem">add scope item</div>
+    <div class="flatButton floatRight" id="btnShowPrintWorkOrderPopup">Print Work Order</div>
+    <div id="divEditDetails" class="divDetailItems">
+        <textarea id="txtJobDescription"></textarea>
+    </div>
+    <div class="flatButton floatRight" id="btnSaveJobDescription">Save Job Description</div>
+    <div class="statusDate">
+        Date Completed <input id="txtDateScopeCompleted" class="datePicker roundedInput" style="width:123px;" />
+        <div class="flatButton" id="btnSetAsScopeCompleted">Set as Scope Completed</div>
+    </div>
+</div>
+
+<div class="ezPopup" id="divJobCostPopup">
+    <table>
+        <tr>
+            <td>Description</td>
+            <td><input data-bind="value:CostDescription" /></td>
+        </tr>
+        @*<tr>
+            <td>Cost</td>
+            <td><input data-bind="value:CostAmount" /></td>
+        </tr>*@
+    </table>
+    <div style="float:right">
+        <div class="thinflatButton" id="btnJobCostSave">Save</div>
+        <div class="thinflatButton" id="btnJobCostPopupClose">Cancel</div>
+    </div>
+</div>
+
+<div class="ezPopup" id="divPrintWorkOrderPopup">
+    <div style="float:right">
+        <div class="thinflatButton" id="btnPrintWorkOrder">Print</div>
+    </div>
+    <div id="divWorkOrederPrintArea">
+        <img title="Grahamson" height="125" src="~/Images/Grahamson.png" />
+        <div>Work Order</div>
+        <table style="margin-top:8px; width:100%;" border="1">
+            <tr><td>Job #</td><td id="woPrntJobNum"></td><td>Date</td><td  id="woPrntDate"></td></tr>
+            <tr><td>Client</td><td id="woPrntCustomer"></td><td>Address</td><td id="woPrntProperty"></td></tr>
+            <tr><td>Contact</td><td id="woPrntContact"></td><td>Phone</td><td id="woPrntPhone"></td></tr>
+            <tr><td>Job Name</td><td id="woPrntJob"></td><td>Priority</td><td></td></tr>
+        </table>
+        <div style="height:20px; background-color:#6c149b;"></div>
+        <div id="woJobDescription" style="white-space:pre;">
+
+        </div>
+        <div style="height:20px; background-color:#6c149b;"></div>
+        <div>Scope</div>
+        <div id="divWorkOrderScopeList"></div>
+        <table style="margin-top:8px; width:100%;">
+            <tr><td><div style="height:20px; background-color:#6c149b;"></div></td></tr>
+            <tr><td>Work Completed:</td></tr>
+            <tr><td></td></tr>
+            <tr><td><div style="height:20px; background-color:#6c149b;"></div></td></tr>
+            <tr><td>Pictures:</td></tr>
+            <tr><td></td></tr>
+            <tr><td><div style="height:20px; background-color:#6c149b;"></div></td></tr>
+            <tr><td>Material Used:</td></tr>
+            <tr><td></td></tr>
+            <tr><td><div style="height:20px; background-color:#6c149b;"></div></td></tr>
+        </table>
+    </div>
+    <div style="float:right">  
+        <div class="thinflatButton" id="btnPrintWorkOrderPopupClose">Close</div>
+    </div>
+</div>

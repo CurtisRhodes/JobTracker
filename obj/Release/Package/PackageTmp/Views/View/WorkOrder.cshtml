@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Work Order";
+}
+
+@section scripts {
+    <script>
+    </script>
+}
+
+@section Header {
+    <td class="alignLeft">
+        <span onclick="window.location.href ='@Url.Action("JobList", "View")'">Return to List</span>
+    </td>
+    <td></td>
+    <td class="alignRight"></td>
+}
+
+<div class="wksheetHeader">WORK ORDER</div>
+@Html.Partial("_JobHeader")
+
+

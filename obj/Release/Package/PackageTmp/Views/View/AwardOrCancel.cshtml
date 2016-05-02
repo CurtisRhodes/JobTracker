@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Award Or Cancel";
+}
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('#txtDateAwarded').val(today());
+            });
+
+            $('#btnSetAsAwarded').click(function () {
+                $.getJSON(relativeUrl + 'Data/UpdateJobStatus',
+                    { whichDate: 'DateAwarded', statusTypeCode: 'S04', date: $('#txtDateAwarded').val(), projectId: '@ViewBag.ProjectId' },
+                    function (success) {
+                        if (success[0] == "ok")
+                            window.location.href = relativeUrl + 'View/QueueList/?statusType=AwardOrCancel';
+                        else
+                            alert(success[0])
+                    })
+            })
+            $('#btnBidNotAccepted').click(function () {
+                $.getJSON(relativeUrl + 'Data/UpdateJobStatus',
+                    { whichDate: 'DateCompleted', statusTypeCode: 'S10', date: $('#txtDateAwarded').val(), projectId: '@ViewBag.ProjectId' },
+                    function (success) {
+                        if (success[0] == "ok")
+                            window.location.href = relativeUrl + 'View/QueueList/?statusType=AwardOrCancel';
+                        else
+                            alert(success[0])
+                    })
+            })
+        });
+    </script>
+}
+
+<div class="leftMargin rightMargin" >
+    <div class="wksheetHeader">AWARD OR CANCEL</div>
+    @Html.Partial("_JobHeader")
+    <div class="statusDate">
+        Date Awarded <input id="txtDateAwarded" class="datePicker roundedInput" style="width:123px;" />
+        <div class="flatButton" id="btnSetAsAwarded">Set as Awarded</div>
+    </div>
+    <div>
+        <div class="flatButton" id="btnBidNotAccepted">Set as Bid Not Accepted</div>
+    </div>
+</div>
+
+
+
+
+
+

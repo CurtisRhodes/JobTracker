@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Bid";
+}
+
+@section scripts {
+    <script src="~/Scripts/JobCostsVM.js"></script>
+    <script src="~/Scripts/EstimateVM.js"></script>
+    <script src="~/Scripts/Estimate.js"></script>
+    <script>
+        if ('@ViewBag.ProjectId' != 0) {
+            jobCostViewModel.ProjectId('@ViewBag.ProjectId')
+            estimateViewModel.ProjectId('@ViewBag.ProjectId')
+            estimateViewModel.Load();
+            ko.applyBindings(estimateViewModel, document.getElementById("divEstimate"));
+            ko.applyBindings(jobCostViewModel, document.getElementById("divJobCostPopup"));
+        }
+    </script>
+}
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">JOB COST AND PRICING WORKSHEET</div>
+    @Html.Partial("_JobHeader")
+    <div>
+        <div>
+            <div class="tab" id="tabLabor">Labor Cost</div>
+            <div class="tab" id="tabCharges">Special Charges</div>
+            <div class="tab" id="tabEquip">Equipment Cost</div>
+            <div class="tab" id="tabMaterail">Material Cost</div>
+            <div class="tab">Attachments</div>
+        </div>
+        <div id="divEstimate">
+            <div class="tabArea" id="tabLaborArea">
+                <div class="costSubLabel">Direct labor:</div>
+                <div id="divShours">Supervisors Hrs <input data-bind="value:SupervisorHours" /> @@ $ <input data-bind="value:SupervisorPerHour" /> per/hr. = $<span id="shours"></span></div>
+                <div id="divWhours">Workers Hrs <input data-bind="value:WorkerHours" />hours @@ $ <input data-bind="value:WorkerPerHour" /> per/hr. = $<span id="whours"></span></div>
+                <div>Total # of Days <input data-bind="value:TotalDays" /></div>
+                <div class="costSubLabel">Other Contract labor cost:</div>
+                <div id="divOtherLaborItems" class="divDetailItems"></div>
+                <div class="flatButton floatRight btnSaveEstimate">Save changes</div>
+                <div>
+                    <div class="linky" id="lkLabor">add other labor cost</div>
+                    <div class="estListTotal">$ <span id="spTotalOtherLabor"></span></div>
+                </div>
+                <div class="costSubLabel">Total Labor Cost $ <span data-bind="text:TotalLaborCost"></span></div>
+            </div>
+            <div class="tabArea" id="tabEquipArea">
+                <div class="costSubLabel">Vehicle/Equipment charges:</div>
+                <div id="divTruckCost"><input data-bind="value:Trucks" /> Truck(s) x <input data-bind="value:TruckCost" /> = $<span id="sTrucks"></span></div>
+                <div id="divOtherEquipmentItems" class="divDetailItems"></div>
+                <div class="flatButton floatRight btnSaveEstimate">Save changes</div>
+                <div>
+                    <div class="linky" id="lkEquipment">add other equipment charge</div>
+                    <div class="estListTotal">$ <span id="spTotalOtherEquipment"></span></div>
+                </div>
+                <div class="costSubLabel">Total Equipment Cost $ <span data-bind="text:TotalEquipmentCost"></span></div>
+            </div>
+            <div class="tabArea" id="tabMaterailArea">
+                <div class="costSubLabel">Materials List:</div>
+                <div id="divMaterialItems" class="divDetailItems"></div>
+                <div>
+                    <div class="linky" id="lkMaterial">add material charge</div>
+                </div>                
+                <div class="costSubLabel">Total Material Cost  $ <span id="spTotalMaterial"></span></div>
+            </div>
+            <div class="tabArea" id="tabChargesArea">
+                <div class="costSubLabel">Special Charges:</div>
+                <div id="divLibilityInsurance">General Libility Insurance Coverage (.006% Total Labor Cost) $ <input data-bind="value:LiabilityInsurance" /></div>
+                <div id="divMarginTax">Margin Tax (Texas Only -1.03% Total Labor Cost) $ <input data-bind="value:MarginTax" /></div>
+                <div class="costSubLabel">Other Charges:</div>
+                <div id="divOtherSpecialCharges" class="divDetailItems"></div>
+                <div class="flatButton floatRight btnSaveEstimate">Save changes</div>
+                <div>
+                    <div class="linky" id="lkCharges">add other charges</div>
+                    <div class="estListTotal">$ <span id="spTotalOtherCharges"></span></div>
+                </div>
+                <div class="costSubLabel">Total Special Charges $ <span id="spnTotalSpecialCharges2"></span></div>
+            </div>
+            <div class="totalCostRow">
+                Total Labor Cost $ <span id="spnTotalLaborCost"></span>
+                Total Special Charges $ <span id="spnTotalSpecialCharges"></span>
+                Total Equipment Cost $ <span id="spnTotalEquipmentCost"></span>
+                Total Material Cost $ <span id="spnTotalMaterialCost"></span>
+                Grand Total $ <span id="spnGrandTotal"></span>
+            </div>
+        </div>
+        <div class="statusDate">
+            Date Completed <input id="txtDateEstimateCompleted" class="datePicker roundedInput" style="width:123px;" />
+            <div class="flatButton" id="btnSetAsEstimateCompleted">Set as Estimate Completed</div>
+        </div>
+    </div>
+</div>
+
+<div class="ezPopup" id="divJobCostPopup">
+    <table>
+        <tr>
+            <td>Description</td>
+            <td><input data-bind="value:CostDescription" /></td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td><input data-bind="value:CostAmount" /></td>
+        </tr>
+    </table>
+        <div style="float:right">
+            <div class="thinflatButton" id="btnJobCostSave">Save</div>
+            <div class="thinflatButton" id="btnJobCostPopupClose">Cancel</div>
+        </div>
+</div>
+
+   

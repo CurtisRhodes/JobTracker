@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+@section scripts {
+    <link href="~/Styles/ezCrud.css" rel="stylesheet" />
+    <script src="~/Scripts/ezCrud.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(function () {
+            });
+
+            $('.tdLeftMenuArea ul li').click(function () {
+                switch ($(this).attr('Id')) {
+                    case 'report1':
+                        $('#divReport1').show();
+                        //kpiAuthorizedUserViewModel.List();
+                        break;
+                    case 'report2':
+                        $('#divReport2').show();
+                        break;
+                    case 'report3':
+                        $('#divReport3').show();
+                        break;
+                    default:
+                        alert('default: ' + $(this).attr('Id'));
+                        break;
+                }
+            })
+
+        });
+    </script>
+}
+
+<table>
+    <tr>
+        <td class="tdLeftMenuArea">
+            <ul>
+                <li id="report1">Jobs Listed by Status</li>
+                <li id="report2">Customer List</li>
+                <li id="report3">Customer Properties</li>
+            </ul>
+        </td>
+        <td class="adminWorkArea">
+            <div class="adminWorkAreaDiv" id="divReport1">
+                <div class="sectionHeader">Jobs Listed by Status</div>
+            </div>
+            <div class="adminWorkAreaDiv" id="divReport2">
+                <div class="sectionHeader">Customer List</div>
+            </div>
+            <div class="adminWorkAreaDiv" id="divReport3">
+                <div class="sectionHeader">Customer Properties</div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+
+

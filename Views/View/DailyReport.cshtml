@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Daily Report";
+}
+
+@section scripts {
+    <script src="~/Scripts/JobVM.js"></script>
+    <script>
+        if ('@ViewBag.ProjectId' != 0) {
+            projectHeaderViewModel.Load('@ViewBag.ProjectId');
+            ko.applyBindings(projectHeaderViewModel, document.getElementById("divCurProject"));
+        }
+    </script>
+}
+
+@section Header {
+    <td class="alignLeft">
+        <span onclick="window.location.href ='@Url.Action("JobList", "View")'">Return to List</span>
+    </td>
+    <td></td>
+    <td class="alignRight"></td>
+}
+
+<div class="wksheetHeader">DAILY REPORT</div>
+<div id="divCurProject" class="infoBox">
+    <table>
+        <tr>
+            <td>Job Number</td>
+            <td><div data-bind="html:GrahamsonId"></div></td>
+            <td>Customer</td>
+            <td><div data-bind="html:Customer"></div></td>
+        </tr>
+        <tr>
+            <td>Propery</td>
+            <td colspan="3"><div data-bind="html:Property"></div></td>
+        </tr>
+        <tr>
+            <td>Job Type</td>
+            <td><div data-bind="html:JobType"></div></td>
+            <td>Status</td>
+            <td><div data-bind="html:JobStatus"></div></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td colspan="3"><p data-bind="html:JobName"></p></td>
+        </tr>
+        <tr>
+            <td colspan="4"><span class="linky">edit</span></td>
+        </tr>
+    </table>
+</div>
+
+
+

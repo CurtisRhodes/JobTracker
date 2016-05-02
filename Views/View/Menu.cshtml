@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script>
+    $(document).ready(function () {
+
+        $('#txtActiveJob').change(function () {
+            if ($(this).val() != ''){
+                $.getJSON(relativeUrl + 'View/SetActiveJob', { activeJob : $(this).val() });
+                $('#dimableMenuItems div').removeClass('metroBoxDisabled').addClass('metroBox');
+            }
+            else
+                $('#dimableMenuItems div').removeClass('metroBox').addClass('metroBoxDisabled');
+        });
+
+        $(function () {
+            @*if ('@ViewBag.ActiveJob' != null) {
+                $('#txtActiveJob').val('@ViewBag.ActiveJob')
+                $('#txtActiveJob').change()
+            }*@
+
+            $('.metroBox').click(function () {
+                switch ($(this).attr('id')) {
+                    case 'AddNew':
+                        window.location.href = '@Url.Action("Project", "View", new { id = 0 })'
+                        break;
+                    case 'Reports':
+                        window.location.href = '@Url.Action("Reports", "View")'
+                        break;
+                    default:
+                        window.location.href = relativeUrl + 'View/QueueList/?statusType=' + $(this).attr('id');
+                        break;
+                }
+            });
+
+                        $.getJSON(relativeUrl + 'Data/GetStatusCounts', function(data){
+                            $('#requestedCount').html(data.Requested)
+                            $('#scopeCount').html(data.Scope)
+                            $('#estimateCount').html(data.Estimate)
+                            $('#proposalCount').html(data.Proposal)
+                            $('#awardedCount').html(data.Awarded)
+                            $('#scheduledCount').html(data.Scheduled)
+                            $('#workInProgressCount').html(data.WorkInProgress)
+                            $('#workCompletedCount').html(data.WorkComplete)
+                            $('#invoicedCount').html(data.Invoiced)
+                        });
+                });
+            });
+</script>
+@*<div id="divActiveJob">
+    Active Job <input class="roundedInput" id="txtActiveJob" />
+</div>*@
+<div class="metroBoxesContainer">
+    <p class="nonMetro linky" onclick="window.location.href = '@Url.Action("JobList", "View")'">Job Log</p>
+    <div class="metroBox" id="AddNew" >
+        New Job
+    </div>
+    <div class="metroBox" id="Takeoff">
+        Take Off
+    </div>
+    <div class="metroBox" id="Scope">
+        <p class="facebookCountAlert" id="requestedCount"></p>
+        Scope
+    </div>
+    <div class="metroBox" id="Estimate">
+        <p class="facebookCountAlert" id="scopeCount"></p>
+        Estimate
+    </div>
+    <div class="metroBox" id="Proposal">
+        <p class="facebookCountAlert" id="estimateCount"></p>
+        Proposal
+    </div>
+    <div class="metroBox" id="AwardOrCancel">
+        <p class="facebookCountAlert" id="proposalCount"></p>
+        Award or Cancel
+    </div>
+    <div class="metroBox" id="Schedule">
+        <p class="facebookCountAlert" id="awardedCount"></p>
+        Schedule
+    </div>
+    <div class="metroBox" id="WorkInProgress">
+        <p class="facebookCountAlert" id="workInProgressCount"></p>
+        Work In Progress
+    </div>
+    <div class="metroBox" id="Invoice">
+        <p class="facebookCountAlert" id="workCompletedCount"></p>
+        Ready To Invoice
+    </div>
+    <div class="metroBox" id="PaymentReceived">
+        <p class="facebookCountAlert" id="invoicedCount"></p>
+        Payment Received
+    </div>
+    <div class="metroBox" id="Reports">
+        Reports
+    </div>
+</div>
+<p class="nonMetro2 linky" onclick="window.location.href = '@Url.Action("Tables", "View")'">Admin</p>

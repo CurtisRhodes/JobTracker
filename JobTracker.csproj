@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{483C9D4E-D299-478C-8C0E-E612B7C1B2D3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JobTracker</RootNamespace>
+    <AssemblyName>JobTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DataAccess.cs" />
+    <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="Controllers\ListController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\closed.png" />
+    <Content Include="Images\doc.png" />
+    <Content Include="Images\down.png" />
+    <Content Include="Images\EditDoc.jpg" />
+    <Content Include="Images\FastFoward.png" />
+    <Content Include="Images\grahamson.ico" />
+    <Content Include="Images\Grahamson.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\magnifyingGlass.png" />
+    <Content Include="Images\Next.png" />
+    <Content Include="Images\openR.png" />
+    <Content Include="Images\personGlyph.JPG" />
+    <Content Include="Images\Prev.png" />
+    <Content Include="Images\redXdelete.jpg" />
+    <Content Include="Images\Refresh.png" />
+    <Content Include="Images\Rewind.png" />
+    <Content Include="Images\up.png" />
+    <Content Include="Scripts\Estimate.js" />
+    <Content Include="Scripts\EstimateVM.js" />
+    <Content Include="Scripts\ezCrud.js" />
+    <Content Include="Scripts\ezList.js" />
+    <Content Include="Scripts\ezRefs.js" />
+    <Content Include="Scripts\Invoice.js" />
+    <Content Include="Scripts\JobCostsVM.js" />
+    <Content Include="Scripts\JobVM.js" />
+    <Content Include="Scripts\jquery\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\jquery\jquery-1.11.2.js" />
+    <Content Include="Scripts\jquery\jquery-print.js" />
+    <Content Include="Scripts\jquery\jquery-ui.js" />
+    <Content Include="Scripts\jquery\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery\jquery.datetimepicker.js" />
+    <Content Include="Scripts\knockout\knockout-3.0.0.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\numeral.js" />
+    <Content Include="Scripts\plupload.full.min.js" />
+    <Content Include="Scripts\plupload.min.js" />
+    <Content Include="Scripts\Project.js" />
+    <Content Include="Scripts\Proposal.js" />
+    <Content Include="Scripts\QueueList.js" />
+    <Content Include="Scripts\Scope.js" />
+    <Content Include="Scripts\Tables.js" />
+    <Content Include="Scripts\Takeoff.js" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Styles\ezCrud.css" />
+    <Content Include="Styles\ezList.css" />
+    <Content Include="Styles\ezRefs.css" />
+    <Content Include="Styles\Grahamson_Common.css" />
+    <Content Include="Styles\Grahamson_Inputs.css" />
+    <Content Include="Styles\Grahamson_Layout.css" />
+    <Content Include="Scripts\jquery\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Scripts\jquery\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Scripts\jquery\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Scripts\jquery\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jquery\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Scripts\jquery\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Scripts\jquery\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Styles\jquery\jquery-ui.css" />
+    <Content Include="Styles\jquery\jquery.datetimepicker.css" />
+    <Content Include="Styles\jquery\jquery.ui.datepicker.css" />
+    <Content Include="Styles\jquery\jquery.ui.dialog.css" />
+    <Content Include="Styles\jquery\jquery.ui.theme.css" />
+    <Content Include="Styles\jquery\theme.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\jquery\jquery.validate.min.js" />
+    <Content Include="Scripts\bootstrap\modernizr-2.6.2.js" />
+    <Content Include="Scripts\bootstrap\respond.js" />
+    <Content Include="Scripts\bootstrap\respond.min.js" />
+    <Content Include="Scripts\bootstrap\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\View\Menu.cshtml" />
+    <Content Include="Views\View\JobList.cshtml" />
+    <Content Include="Views\Shared\_ezList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Views\View\Project.cshtml" />
+    <Content Include="Views\View\Estimate.cshtml" />
+    <Content Include="Views\View\Tables.cshtml" />
+    <None Include="Properties\PublishProfiles\Grahamson.pubxml" />
+    <Content Include="Views\View\WorkOrder.cshtml" />
+    <Content Include="Views\View\Proposal.cshtml" />
+    <Content Include="Views\View\DailyReport.cshtml" />
+    <Content Include="Views\View\Invoice.cshtml" />
+    <Content Include="Views\Shared\_JobHeader.cshtml" />
+    <Content Include="Views\View\QueueList.cshtml" />
+    <Content Include="Views\View\Scope.cshtml" />
+    <Content Include="Views\View\AwardOrCancel.cshtml" />
+    <Content Include="Views\View\Schedule.cshtml" />
+    <Content Include="Views\View\WorkInProgress.cshtml" />
+    <Content Include="Views\View\PaymentReceived.cshtml" />
+    <Content Include="Views\View\Reports.cshtml" />
+    <Content Include="Views\View\Takeoff.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3114</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3114/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

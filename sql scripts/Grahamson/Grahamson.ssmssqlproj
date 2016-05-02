@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Grahamson">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="OFFICE-PC\SQL2014:OFFICE-PC\Curtis">
+          <Created>2015-12-25T20:10:12.0595502-06:00</Created>
+          <Type>SQL</Type>
+          <Server>OFFICE-PC\SQL2014</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="create procs.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>create procs.sql</FullPath>
+        </FileNode>
+        <FileNode Name="create tables.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>create tables.sql</FullPath>
+        </FileNode>
+        <FileNode Name="create views.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>create views.sql</FullPath>
+        </FileNode>
+        <FileNode Name="import Project.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>import Project.sql</FullPath>
+        </FileNode>
+        <FileNode Name="populate ref codes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>populate ref codes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="process Work Order Log Spreadsheet.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>process Work Order Log Spreadsheet.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery2.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="status counts.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>status counts.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Users and Roles.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:OFFICE-PC\SQL2014:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>OFFICE-PC\SQL2014</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Users and Roles.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

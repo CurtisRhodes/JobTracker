@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Job List";
+}
+
+@section scripts { 
+    <script src="~/Scripts/ezList.js"></script>
+    <script>
+        var editUrl = relativeUrl + 'View/Project/';
+        var viewName = "JobTracker..vJobList";
+
+        function onUserLoaded() {
+        }
+
+        setDefaultSortColumn("Id", "desc")
+        function onDefaultSortColumnSet() {
+            listInit(viewName)
+        }
+    </script>
+}
+
+@section Header {
+        <td class="alignLeft">
+            <span onclick="window.location.href ='@Url.Action("Project", "View", new { id = 0 })'">Add New Project</span>
+        </td>
+        <td></td>
+        <td class="alignRight">
+            <span id="spnFilter">filter</span> |
+            <span id="spnSearch">search</span> |
+            <img src="~/Images/Refresh.png" style="height:13px; padding-top:4px; cursor:pointer" id="icoRefresh" title="refresh" />
+        </td>
+}
+<div style="margin-left:10px; margin-right:10px;">
+    @Html.Partial("_ezList")
+</div>
+
+

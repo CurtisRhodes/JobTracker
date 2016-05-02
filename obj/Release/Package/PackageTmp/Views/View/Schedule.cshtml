@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Schedule";
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('#txtDateScheduled').val(today());
+            });
+
+            $('#btnSetAsScheduled').click(function () {
+                $.getJSON(relativeUrl + 'Data/UpdateJobStatus',
+                    { whichDate: 'DateStarted', statusTypeCode: 'S06', date: $('#txtDateScheduled').val(), projectId: '@ViewBag.ProjectId' },
+                    function (success) {
+                        if (success[0] == "ok")
+                            window.location.href = relativeUrl + 'View/QueueList/?statusType=Schedule';
+                        else
+                            alert(success[0])
+                    })
+            })
+        });
+    </script>
+}
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">SCHEDULE</div>
+    @Html.Partial("_JobHeader")
+
+    <div class="calendarDiv" id="divCalendar">
+        calendar comming soon
+    </div>
+
+    <div class="statusDate">
+        Date Scheduled <input id="txtDateScheduled" class="datePicker roundedInput" style="width:123px;" />
+        <div class="flatButton" id="btnSetAsScheduled">Set as Work In Progress</div>
+    </div>
+</div>
+
+
+
+
+
+

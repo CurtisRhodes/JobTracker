@@ -1,0 +1,156 @@
+﻿html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.floatRight {
+    float: right;
+    margin-right: 3%;
+}
+.leftMargin {
+    margin-left: 20%;
+}
+.rightMargin {
+    margin-right:20% !important;
+}
+#divActiveJob {
+    margin-left: 80px;
+    margin-top: 50px;
+}
+#divActiveJob input {
+    margin-left:10px;
+    width:200px;
+}
+.nonMetro {
+    text-align:left;
+    font-size:20px;
+    margin-left:50px;
+}
+.nonMetro2 {
+    text-align:left;
+    font-size:20px;
+    margin-left:100px;
+}
+.facebookCountAlert {    
+    color: #fff;
+    margin: 0;
+    margin-bottom:14px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width:33px;
+    height:28px;
+    padding-top:2px;
+}
+.metroBoxesContainer {
+    float: left;
+    text-align:center;
+    margin-left: 60px;
+    margin-right:60px;
+    margin-top: 50px;
+}
+
+.metroBox {
+    float: left;
+    padding: 24px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 14px;
+    background-color:#184aa0;
+    color: #fff;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.metroBoxDisabled {
+    float: left;
+    padding: 24px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 14px;
+    background-color: #4667a0;
+    color: #ccc;
+    height: 150px;
+    width: 150px;
+    cursor: none;
+}
+
+
+.tablefooter {
+  text-align: center;
+  margin-top: 8px;
+}
+.alignLeft {
+    padding-left: 12px;
+    text-align: left !important;
+}
+.alignRight {
+    text-align:right !important;
+    padding-right:8px;
+}
+.ltable {
+  width: 100%;
+  border: solid thin #888;
+}
+.ltable td {
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 20px;
+}
+.ltable thead {
+  /*height: 50px;*/
+  background-color: #eee;
+  /*color:#ad163b;*/
+  text-align: center;
+}
+.linky {
+  color: #124191;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.flatButton {
+  display: inline-block;
+  border: solid #124191 5px;
+  padding: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.thinflatButton {
+  display: inline-block;
+  border: solid #124191 2.5px;
+  padding: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+  max-width: 140px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+#queueList {
+    border: solid 2px #184aa0;
+    display: inline-block;
+    max-height: 500px;
+    overflow: auto;
+}
+    #queueList td {
+        margin: 0;
+        padding: 11px;
+    }
+
+.statusDate {
+    padding: 10px;
+}
+
+.proposalTotals {
+    margin:50px;
+    font-weight:bold;
+}
+.proposalTotals td {
+    padding:13px;
+}

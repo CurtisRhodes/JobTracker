@@ -1,0 +1,54 @@
+﻿
+<script src="~/Scripts/JobVM.js"></script>
+<script>
+    $(document).ready(function () {
+        if ('@ViewBag.ProjectId' != 0) {
+            projectHeaderViewModel.Load('@ViewBag.ProjectId');
+            ko.applyBindings(projectHeaderViewModel, document.getElementById("divCurProject"));
+        }
+
+        $('#spEditHeader').click(function () {
+            window.location.href = relativeUrl + 'View/Project/' + projectHeaderViewModel.ProjectId()
+        });
+
+    })
+</script>
+<div class="infoBoxContainer">
+    <div id="divCurProject" class="infoBox">
+        <table>
+            <tr>
+                <td>Job Number</td>
+                <td><div data-bind="html:GrahamsonId"></div></td>
+                <td>Customer</td>
+                <td><div data-bind="html:Customer"></div></td>
+            </tr>
+            <tr>
+                <td>Propery</td>
+                <td colspan="3"><div data-bind="html:Property"></div></td>
+            </tr>
+            <tr>
+                <td>Job Type</td>
+                <td><div data-bind="html:JobType"></div></td>
+                <td>Status</td>
+                <td><div data-bind="html:JobStatus"></div></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><div data-bind="html:ContactName"></div></td>
+                <td>Phone</td>
+                <td><div data-bind="html:ContactPhone"></div></td>
+            </tr>
+            <tr>
+                <td>JobName</td>
+                <td colspan="3"><div data-bind="html:JobName"></div></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td colspan="3"><div class="headerDescriptionDiv" data-bind="text:JobDescription"></div></td>
+            </tr>
+            <tr>
+                <td colspan="4"><span id="spEditHeader" class="linky">edit</span></td>
+            </tr>
+        </table>
+    </div>
+</div>

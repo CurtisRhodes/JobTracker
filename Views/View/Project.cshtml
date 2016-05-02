@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Add / Edit Project";
+}
+
+@section scripts {
+    <script src="~/Scripts/Project.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script>
+        GetRefs();
+        function onDropDownsLoaded() {
+            if ('@ViewBag.ProjectId' != 0) {
+                $('#btnEditSave').html("Update");
+                projectViewModel.Load('@ViewBag.ProjectId');
+            }
+            else {
+                projectViewModel.ProjectId(0);
+                projectViewModel.DateRequested(today());
+                projectViewModel.JobStatus('S00');
+            }
+            ko.applyBindings(projectViewModel, document.getElementById("databindArea"));
+        }
+    </script>
+}
+
+<div id="databindArea" class="inputArea">
+    <table>
+        <tr>
+            <td>Job Number</td><td><input class="roundedInput" data-bind="value:GrahamsonId" /></td>
+            <td>Status</td><td><select class="roundedInput" id="selJobStatus" data-bind="value:JobStatus" /></td>
+        </tr>
+        <tr>
+            <td>Propery</td><td><select class="roundedInput" id="selProperty" data-bind="value:PropertyId" /></td>
+            <td>Job Type</td><td><select class="roundedInput" id="selJobType" data-bind="value:JobType" /></td>
+        </tr>
+        <tr>
+            <td>Job Name</td><td><input class="roundedInput" data-bind="value:JobName"/></td>
+            <td>Estimated Number of Days</td><td><input class="roundedInput" data-bind="value:EstimatedDays"/></td>
+        </tr>
+        <tr>
+            <td>Detailed<br /> Description<br /> of Work</td>
+            <td colspan="3"><textarea class="roundedInput" data-bind="value:JobDescription"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                <table>
+                    <tr>
+                        <td>Requested</td><td><input data-bind="value:DateRequested" class="datePicker roundedInput" /></td>
+                        <td>Bid Sent</td><td><input data-bind="value:DateBidSent" class="datePicker roundedInput" /></td>
+                        <td>Bid Awarded</td><td><input data-bind="value:DateAwarded" class="datePicker roundedInput" /></td>
+                    </tr>
+                    <tr>
+                        <td>Work Started</td><td><input data-bind="value:DateStarted" class="datePicker roundedInput" /></td>
+                        <td>Work Completed</td><td><input data-bind="value:DateCompleted" class="datePicker roundedInput" /></td>
+                        <td>Invoice Sent</td><td><input data-bind="value:DateBilled" class="datePicker roundedInput" /></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+    <div class="buttonsRightAlign">
+        <span class="flatButton" id="btnEditSave">Submit</span>
+    </div>
+    <div class="buttonsCenter">
+        <span class="flatButton" onclick="projectViewModel.Save('takeoff');">Take Off</span>
+        <span class="flatButton" onclick="projectViewModel.Save('scope');">Scope</span>
+        <span class="flatButton" onclick="projectViewModel.Save('estimate');">Estimate</span>
+        <span class="flatButton" onclick="projectViewModel.Save('proposal');">Proposal</span>
+        <span class="flatButton" onclick="projectViewModel.Save('award');">Award</span>
+        <span class="flatButton" onclick="projectViewModel.Save('schedule');">Schedule</span>
+        <span class="flatButton" onclick="projectViewModel.Save('complete');">Complete</span>
+        <span class="flatButton" onclick="projectViewModel.Save('invoice');">Invoice</span>
+        <span class="flatButton" onclick="projectViewModel.Save('receive');">Receive Payment</span>
+    </div>
+

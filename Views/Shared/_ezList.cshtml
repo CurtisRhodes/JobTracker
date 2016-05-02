@@ -1,0 +1,55 @@
+﻿<style>
+    .tdEdit {
+        padding-left: 10px;
+    }
+</style>
+
+<div id="divloadArea">
+    <table id="listTableBody" cellspacing="0" class="table ltable">
+        <thead>
+            <tr id="headerLabel"></tr>
+            <tr class="ltableUtils">
+                <td colspan="20">
+                    <div id="SearchArea">
+                        Search Where:
+                        <select id="selSearchField"></select>
+                        <select id="selSearchOperator">
+                            <option>equals</option>
+                            <option>starts with</option>
+                            <option>contains</option>
+                            <option>between</option>
+                            <option>less than</option>
+                            <option>greater than</option>
+                            <option>not equals</option>
+                        </select>
+                        <input id="txtSearch" />
+                        <button id="applySearch">Go</button>
+                        <button class="clearFilter">Clear Search</button>
+                    </div>
+                </td>
+            </tr>
+            <tr class="ltableUtils">
+                <td colspan="20">
+                    <div id="filterArea">
+                        Filter On:
+                        <select id="selFilterField"></select>
+                        =
+                        <select id="selFilterValues"></select>
+                        <button id="applyFilter">Go</button>
+                        <button class="clearFilter">Clear Filter</button>
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <div class="tablefooter">
+        @*<img style="text-align:left; margin-left:10px;" src='@Url.Content("~/images/ajax-loader.gif")' id="loadingGif" title="Loading" />*@
+        <img src='@Url.Content("~/images/Rewind.png")' id="GoTop" class="btnpgNav" title="Go Top" />
+        <img src='@Url.Content("~/images/Prev.png")' id="GoPrev" class="btnpgNav" title="Previous Page" />
+        <img src='@Url.Content("~/images/Next.png")' id="GoNext" class="btnpgNav" title="Next Page" />
+        <img src='@Url.Content("~/images/FastFoward.png")' id="GoBott" class="btnpgNav" title="Last" />
+        <span style="margin-left:222px;">displaying&nbsp;<span id="spStartRec"></span>&nbsp;to&nbsp;<span id="spEndRec"></span>&nbsp;of&nbsp;<span id="spTotalRecs"></span></span>
+    </div>
+</div>
+

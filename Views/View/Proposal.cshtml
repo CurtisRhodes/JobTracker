@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Proposal";
+}
+
+@section scripts {
+    <script src="~/Scripts/numeral.js"></script>
+    <script src="~/Scripts/EstimateVM.js"></script>
+    <script src="~/Scripts/Proposal.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('#txtDateBidSent').val(today());
+                estimateViewModel.ProjectId('@ViewBag.ProjectId')
+                estimateViewModel.Load();
+                //ko.applyBindings(estimateViewModel, document.getElementById("proposalTotals"));
+                loadCosts('@ViewBag.ProjectId')
+            });
+        });
+    </script>
+}
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">PROPOSAL</div>
+    @Html.Partial("_JobHeader")
+    <table class="proposalTotals">
+        <tr><td>Total Labor Cost $</td><td><span id="spTotalLaborCost"></span></td></tr>
+        <tr><td>Total Special Charges $</td><td><span id="spTotalSpecialCharges"></span></td></tr>
+        <tr><td>Total Equipment Cost $</td><td><span id="spTotalEquipmentCost"></span></td></tr>
+        <tr><td>Total Material Cost $</td><td><span id="spTotalMaterialCost"></span></td></tr>
+        <tr><td>Mark up $</td><td><input id="txtMarkUp" /></td></tr>
+        <tr><td>Sub Total $</td><td><span id="spnSubTotal"></span></td></tr>
+        <tr><td>Taxes $</td><td><input id="txtTaxes" /></td></tr>
+        <tr><td>Grand Total $</td><td><span id="spnGrandTotal"></span></td></tr>
+        <tr><td></td><td></td><td><div class="flatButton" id="btnSaveEstimate">Save</div></td></tr>
+    </table>
+    <div>
+        <div class="flatButton" id="btnPrintProposal">Print Proposal</div>
+    </div>
+    <div class="statusDate">
+        Date Bid Sent <input id="txtDateBidSent" class="datePicker roundedInput" style="width:123px;" />
+        <div class="flatButton" id="btnSetAsBidSent">Set as Bid Sent</div>
+    </div>
+    <div>
+    </div>
+</div>
+
+
+
+
+

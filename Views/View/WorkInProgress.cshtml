@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Work In Progress";
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('#txtDateCompleted').val(today());
+            });
+
+            $('#btnSetAsCompleted').click(function () {
+                $.getJSON(relativeUrl + 'Data/UpdateJobStatus',
+                    { whichDate: 'DateCompleted', statusTypeCode: 'S07', date: $('#txtDateCompleted').val(), projectId: '@ViewBag.ProjectId' },
+                    function (success) {
+                        if (success[0] == "ok")
+                            window.location.href = relativeUrl + 'View/QueueList/?statusType=WorkInProgress';
+                        else
+                            alert(success[0])
+                    })
+            })
+
+            $('#btnAddDailyWorkReport').click(function () {
+                alert('comming soon')
+            })           
+
+        });
+    </script>
+}
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">WORK IN PROGRESS</div>
+    @Html.Partial("_JobHeader")
+    <div>
+        <div class="flatButton" id="btnAddDailyWorkReport">Add Daily Work Report</div>
+    </div>
+    <div class="statusDate">
+        Date Work Completed <input id="txtDateCompleted" class="datePicker roundedInput" style="width:123px;" />
+        <div class="flatButton" id="btnSetAsCompleted">Set as Work Completed</div>
+    </div>
+    <div>
+    </div>
+</div>
+
+
+
+
+
+
+

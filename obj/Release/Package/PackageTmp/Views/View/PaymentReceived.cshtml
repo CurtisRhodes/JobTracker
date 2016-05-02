@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Payment Received";
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('#txtDatePaymentReceived').val(today());
+            });
+
+            $('#btnSetAsCompleted').click(function () {
+                $.getJSON(relativeUrl + 'Data/UpdateJobStatus',
+                    { whichDate: 'DatePaymentReceived', statusTypeCode: 'S11', date: $('#txtDatePaymentReceived').val(), projectId: '@ViewBag.ProjectId' },
+                    function (success) {
+                        if (success[0] == "ok")
+                            window.location.href = relativeUrl + 'View/QueueList/?statusType=PaymentReceived';
+                        else
+                            alert(success[0])
+                    })
+            })
+        });
+    </script>
+}
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">PAYMENT</div>
+    @Html.Partial("_JobHeader")
+    <div class="statusDate">
+        Date Payment Received  <input id="txtDatePaymentReceived" class="datePicker roundedInput" style="width:123px;" />
+        <div class="flatButton" id="btnSetAsCompleted">Set as Payment Received</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

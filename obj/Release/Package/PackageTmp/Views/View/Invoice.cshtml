@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Invoice";
+}
+
+@section scripts {
+    <script src="~/Scripts/Invoice.js"></script>
+    <script src="~/Scripts/JobCostsVM.js"></script>
+    <script src="~/Scripts/jquery/jquery-print.js"></script>
+    <script>
+        if ('@ViewBag.ProjectId' != 0) {
+            jobCostViewModel.ProjectId('@ViewBag.ProjectId')
+            ko.applyBindings(jobCostViewModel, document.getElementById("divJobCostPopup"));
+        }
+    </script>
+}
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">INVOICE</div>
+    @Html.Partial("_JobHeader")
+    <br />
+    <div id="divJobCostItems" class="divDetailItems"></div>
+    <div class="flatButton" style="display:inline-block" id="lkInvoiceItem">add invoice item</div>
+    <div class="flatButton floatRight" id="btnShowPrintInvoicePopup">Print Invoice</div>
+    <div class="statusDate">
+        Date Invoice Sent <input id="txtDateInvoiced" class="datePicker roundedInput" style="width:123px;" />
+        <div class="flatButton" id="btnSetAsInvoiced">Set as Invoiced</div>
+    </div>
+</div>
+
+<div class="ezPopup" id="divJobCostPopup">
+    <table>
+        <tr>
+            <td>Description</td>
+            <td><input data-bind="value:CostDescription" /></td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td><input data-bind="value:CostAmount" /></td>
+        </tr>
+    </table>
+    <div style="float:right">
+        <div class="thinflatButton" id="btnJobCostSave">Save</div>
+        <div class="thinflatButton" id="btnJobCostPopupClose">Cancel</div>
+    </div>
+</div>
+
+<div class="ezPopup" id="divPrintInvoicePopup">
+    <div style="float:right">
+        <div class="thinflatButton" id="btnPrintInvoice">Print</div>
+    </div>
+    <div id="divInvoicePrintArea">
+        <img title="Grahamson" height="125" src="~/Images/Grahamson.png" />
+        <div>Invoice</div>
+        <table style="margin-top:8px; width:100%;" border="1">
+            <tr><td>Job #</td><td id="woPrntJobNum"></td><td>Date</td><td id="woPrntDate"></td></tr>
+            <tr><td>Client</td><td id="woPrntCustomer"></td><td>Address</td><td id="woPrntProperty"></td></tr>
+            <tr><td>Contact</td><td id="woPrntContact"></td><td>Phone</td><td id="woPrntPhone"></td></tr>
+            <tr><td>Job Name</td><td id="woPrntJob"></td><td>Priority</td><td></td></tr>
+        </table>
+        <div style="height:20px; background-color:#6c149b;"></div>
+        <div id="divInvoiceItemList"></div>
+
+
+
+    </div>
+    <div style="float:right">
+        <div class="thinflatButton" id="btnPrintInvoicePopupClose">Close</div>
+    </div>
+</div>
+
+
+
+
+
+

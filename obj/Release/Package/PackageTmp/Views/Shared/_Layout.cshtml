@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Grahamson Project Tracker</title>
+    <link href="@Url.Content("~/Images/grahamson.ico")" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/Styles/css")
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.21/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+    <script src="~/Scripts/numeral.js"></script>
+    @Styles.Render("~/Styles/jquery")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
+</head>
+<body>
+    <table class="tblLayoutHeader" border="0">
+        <tr>
+            <td class="tdHeaderLogo">
+                <img title="Grahamson" src="~/Images/Grahamson.png" />
+            </td>
+            <td style="width:211px;">
+                Grahamson Project Tracker
+            </td>
+            <td >
+                <span id="spnPageTitle">@RenderSection("pageTitle", required: false)</span>
+                <span onclick="window.location.href ='@Url.Action("Menu", "View")'">Main Menu</span> | 
+                <span onclick="window.location.href ='@Url.Action("JobList", "View")'">Job Log</span>
+              @RenderSection("Header", required: false)
+            </td>
+            <td class="tdAuthorizedUser">
+                <span>@RenderSection("Authorization", required: false)</</span>
+            </td>
+        </tr>
+    </table>
+    <div id="divLayoutBody">
+        @RenderBody()
+    </div>
+    <footer>
+        <hr  id="hrLayoutFooter" />
+        <p>&copy; @DateTime.Now.Year - Grahamson Project Tracker</p>
+        <span id="footerVersion">@JobTracker.Globals.AppVersion</span>
+
+        @*<div>
+            window height: <span id="spnWindowHeight" ></span> | 
+            body height: <span id="spnBodyHeight"></span> |
+            footer height: <span id="spnFooterHeight"></span> |
+            bodyHeight + footerHeight: <span id="spnRealFooterTop"></span> | 
+            <span id="spnCalcMessage"></span>
+        </div>*@
+
+    </footer>
+    <div id="ErrorMsg"></div>
+    <div id="divStatusMsg"></div>
+    <div id="divLoadingMsg">
+        <img src="~/Images/loading.gif" /><div id="divWaitMessage">Loading...</div>
+    </div>
+
+    <script>
+        var relativeUrl = '@Url.Content("~/")';
+
+        $.ajaxSetup({ cache: false });
+        $(function () { $(".datePicker").datepicker({ constrainInput: false }); });
+
+        $(window).resize(function () {
+            var windowHeight = $(window).height();
+            var bodyHeight = $('#divLayoutBody').height()
+            $('#spnWindowHeight').html(windowHeight)
+            $('#spnBodyHeight').html(bodyHeight);
+            var realFooterTop = $('#hrLayoutFooter').offset().top
+            var footerHeight = $('footer').height() + 10;
+            $('#spnRealFooterTop').html(bodyHeight + footerHeight)
+            $('#spnFooterHeight').html(footerHeight)
+
+            if (windowHeight > bodyHeight) {
+                if ((bodyHeight + footerHeight) < (windowHeight - 75)) {
+                    $('Footer').css('top', windowHeight - footerHeight);
+                    $('#spnCalcMessage').html('body too small')
+                }
+                else {
+                    $('#spnCalcMessage').html('body too close: ' + (bodyHeight + footerHeight))
+                    $('Footer').css('top', windowHeight + footerHeight);
+                }
+            }
+            else {
+                $('Footer').css('top', bodyHeight + footerHeight);
+                $('#spnCalcMessage').html('overflow body')
+            }
+            $('Footer').css('width', $(window).width() - 25);
+
+
+        })
+
+        $(window).resize();
+
+        function showLoadingMessage(message) {
+            $('#divWaitMessage').html('Loading...');
+            if (message) {
+                $('#divWaitMessage').html(message);
+            }
+            $('#divLoadingMsg').show();
+        }
+
+        function today() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            return mm + '/' + dd + '/' + yyyy;
+        }
+
+        function IsEmpty(value)
+        {
+            var isEmpty = false;
+            if (value == undefined)
+                isEmpty = true;
+            if (value == null)
+                isEmpty = true;
+            if (value == '')
+                isEmpty = true;
+            if (value == '000')
+                isEmpty = true;
+            return isEmpty;
+        }
+
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

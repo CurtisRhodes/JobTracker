@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Queue List";
+}
+
+@section scripts {
+    <script src="~/Scripts/QueueList.js"></script>
+    <script>
+        statusType = '@ViewBag.StatusType';
+        statusTypeCode = '@ViewBag.StatusTypeCode';
+    </script>
+}
+
+
+<div class="leftMargin rightMargin">
+    <div class="infoBoxContainer">
+        <div class="wksheetHeader">@ViewBag.StatusType Jobs Queue</div>
+        <div id="queueList"></div>
+    </div>
+</div>
+

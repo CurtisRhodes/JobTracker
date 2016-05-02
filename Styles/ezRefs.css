@@ -1,0 +1,46 @@
+﻿#divRefEdit {
+  border: solid 4px #3569a1;
+  margin-top:44px;
+  margin-left:33px;
+  width:400px;
+}
+#divRefEdit input {
+  width: 390px;
+  margin-bottom: 6px;
+}
+#divRefEdit button {
+  border: solid 2px #3569a1;
+  cursor: pointer;
+  margin-left: 90px;
+  margin-bottom: 6px;
+  padding: 10px;
+}
+#selRefTypes {
+  font-size: 18px;
+  width: 400px;
+  padding: 4px;
+}
+.selectedRef {
+  background-color: #d3c9c9;
+  padding: 2px;
+  cursor: pointer;
+}
+#divRefItems {
+  border-top: solid 4px #3569a1;
+  border-bottom: solid 4px #3569a1;
+  height: 330px;
+  width: 400px;
+  overflow: auto;
+}
+#divRefItems div {
+  padding: 2px;
+  cursor: pointer;
+}
+.flatButtonDisabled {
+  border: solid #7e9eb1 5px;
+  color: #ffbb00;
+  padding: 8px;
+  margin-left: 10px;
+  cursor: not-allowed;
+  width: 40px;
+}

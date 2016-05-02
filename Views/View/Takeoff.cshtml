@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Takeoff";
+}
+
+
+@section scripts {
+    <script src="~/Scripts/Takeoff.js"></script>
+    <script type="text/javascript">
+        var projectId = '@ViewBag.ProjectId';
+        if ('@ViewBag.ProjectId' != 0) {
+            getJobDescription('@ViewBag.ProjectId');
+            showImages('@ViewBag.ProjectId');
+        }
+    </script>
+}
+
+<div class="leftMargin rightMargin">
+    <div class="wksheetHeader">TAKEOFF</div>
+
+    @Html.Partial("_JobHeader")
+
+    <div id="divEditDetails" class="divDetailItems">
+        <textarea id="txtJobDescription"></textarea>
+    </div>
+    <div class="flatButton floatRight" id="btnSaveJobDescription">Save Job Description</div>
+
+    <div id="divImages">
+    </div>
+
+
+    <div>
+        @using (Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+            <input type="hidden" name="projectId" value="@ViewBag.ProjectId" />
+                <div id="fileListdiv">
+                    <input type="file" name="files" id="files" multiple="multiple" data-multiple-caption="{count} files selected" />
+                </div>
+                <br />
+                <input type="submit" value="UpLoad Images" class="flatButton" />
+                @ViewBag.Message
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

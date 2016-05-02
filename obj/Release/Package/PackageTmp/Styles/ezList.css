@@ -1,0 +1,21 @@
+﻿
+#headerLabel {
+  height: 40px;
+  cursor: pointer;
+}
+#headerLabel span img {
+  display: none;
+  height: 10px;
+  margin-left: 10px;
+}
+.ltableUtils {
+  background-color: #124191;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+.btnpgNav {
+  cursor: pointer;
+  height: 20px;
+  margin-right: 12px;
+}
